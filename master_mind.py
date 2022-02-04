@@ -42,7 +42,6 @@ def mastermind():
     switcher = {"1": 4, "2": 6, "3": 8}
     balls = switcher[str(difficult)]
     secret_list = random.sample(colors, k=balls)
-    print(*secret_list)
     print("*****Please choose {} colors bettwen: *****\n".format(balls))
     art_2 = art("happy")
     print("                        {}\n".format(art_2))
@@ -96,6 +95,7 @@ def mastermind():
         art_2 = dict_faces["{}".format(k)]
         print("***** You chose this *****")
         validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
+        print_colors(validate, validate_keys)
         print("try again ... {}".format(art_2))
 
     print("***** You chose this *****")
