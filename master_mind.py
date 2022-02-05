@@ -4,8 +4,6 @@ import random
 from colorama import Fore,  Style
 from balls import Balls
 from art import *
-import subprocess
-from playsound import playsound as play
 import pygame
 from time import sleep
 
