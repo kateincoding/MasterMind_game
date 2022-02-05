@@ -68,6 +68,8 @@ def mastermind():
             continue
         i = 0
         validate = []
+        color_pin = []
+        pin = []
         for color in gamer_list:
             if dict_val[color] == secret_list[i]:
                 print(Fore.RED, end="")
@@ -75,14 +77,22 @@ def mastermind():
                 # default chr_ignore=True
                 Art = text2art("X")
                 print(Art, end="")
+                color_pin.append("red")
+                pin.append("X")
                 print(Style.RESET_ALL, end="")
             elif dict_val[color] in secret_list:
                 print(Fore.WHITE, end="")
                 Art = text2art("X")
                 print(Art, end="")
+                pin.append("X")
+                color_pin.append("white")
+                print(Style.RESET_ALL, end="")
             elif dict_val[color] not in secret_list:
+                print(Fore.BLUE, end="")
                 Art = text2art("0")
                 print(Art, end="")
+                pin.append("0")
+                color_pin.append("blue")
             validate.append(dict_val[color])
             i += 1
         if secret_list == validate:
@@ -94,6 +104,7 @@ def mastermind():
         validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
         print_colors(validate, validate_keys)
         balls_t.draw_aptems(validate, -400, coor)
+        balls_t.draw_pins(color_pin, 50, coor)
         print("try again ... {}".format(art_2))
         coor += 90
 
