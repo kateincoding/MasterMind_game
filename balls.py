@@ -34,6 +34,25 @@ class Balls():
             print(self.turtle.position())
             axis = axis + 100
         return(1)
+    def draw_separator(self):
+        axis = 0
+        coor = -400
+        for i in range(2):
+            self.turtle.speed(2)
+            self.turtle.color("yellow")
+            self.turtle.setpos(axis, coor)
+            self.turtle.begin_fill()
+            self.turtle.pendown()
+            self.turtle.left(90)
+            self.turtle.forward(800)
+            self.turtle.right(90)
+            self.turtle.forward(20)
+            self.turtle.right(180)
+            self.turtle.end_fill()
+            coor = self.turtle.position()[1]
+            axis = self.turtle.position()[0]
+            self.turtle.penup()
+
 
 
     def draw_pins(self, colors="", axis=0, coor=0):

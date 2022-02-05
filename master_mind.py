@@ -45,6 +45,7 @@ def mastermind():
     color_fak =  ["white" for i in range(len(secret_list))]
     balls_t =  Balls()
     balls_t.draw_aptems(color_fak, -400, 340)
+    balls_t.draw_separator()
     coor = -380
     for k in range(0, 8):
         print("*****Please choose {} colors bettwen: *****\n".format(balls))
