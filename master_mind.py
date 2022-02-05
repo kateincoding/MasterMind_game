@@ -52,7 +52,6 @@ def mastermind():
     balls = switcher[str(difficult)]
     # Creating secret list colours
     secret_list = random.sample(colors, k=balls)
-    print(secret_list)
     color_fak =  ["white" for i in range(len(secret_list))]
     balls_t =  Balls(difficult)
     balls_t.draw_aptems(color_fak, -400, 340)
