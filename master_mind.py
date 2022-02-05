@@ -15,11 +15,10 @@ dict_faces = {
     "6": art("angry1"),
     "7": art("exorcism")
  }
-colors = ["green", "red", "blue", "yellow", "magenta",
-          "black", "cyan"]
+colors = ["green", "red", "blue", "yellow", "magenta", "cyan"]
 colora = [Fore.GREEN, Fore.RED, Fore.BLUE, Fore.YELLOW, Fore.MAGENTA,
-          Fore.BLACK, Fore.WHITE, Fore.CYAN]
-keys = ["1", "2", "3", "4", "5", "6", "7"]
+          Fore.CYAN]
+keys = ["1", "2", "3", "4", "5", "6"]
 dict_val = dict(zip(keys, colors))
 dict_colors = dict(zip(colors, colora))
 dict_keys = dict(zip(colors, keys))
@@ -39,21 +38,22 @@ def mastermind():
         except Exception:
             print("*****Please choose a valid option {}*****".format(art_2))
             continue
-    switcher = {"1": 4, "2": 6, "3": 7}
+    switcher = {"1": 4, "2": 5, "3": 6}
     balls = switcher[str(difficult)]
     secret_list = random.sample(colors, k=balls)
     print(secret_list)
     color_fak =  ["white" for i in range(len(secret_list))]
     balls_t =  Balls()
     balls_t.draw_aptems(color_fak, -400, 340)
-    print("*****Please choose {} colors bettwen: *****\n".format(balls))
-    art_2 = art("happy")
-    print("                        {}\n".format(art_2))
-    to_list = list(dict(enumerate(colors)).keys()) 
-    to_list = list(map(lambda x: x + 1, to_list))
-    print_colors(colors, to_list)
     coor = -380
     for k in range(0, 8):
+        print("*****Please choose {} colors bettwen: *****\n".format(balls))
+        art_2 = art("happy")
+        print("                        {}\n".format(art_2))
+        to_list = list(dict(enumerate(colors)).keys())
+        to_list = list(map(lambda x: x + 1, to_list))
+        print_colors(colors, to_list)
+
         print()
         try:
             gamer_list = []
