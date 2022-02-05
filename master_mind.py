@@ -2,6 +2,7 @@
 """Master Mind game"""
 import random
 from colorama import Fore,  Style
+from balls import Balls
 from art import *
 
 dict_faces = {
@@ -15,14 +16,13 @@ dict_faces = {
     "7": art("exorcism")
  }
 colors = ["green", "red", "blue", "yellow", "magenta",
-          "black", "white", "cyan"]
+          "black", "cyan"]
 colora = [Fore.GREEN, Fore.RED, Fore.BLUE, Fore.YELLOW, Fore.MAGENTA,
           Fore.BLACK, Fore.WHITE, Fore.CYAN]
-keys = ["1", "2", "3", "4", "5", "6", "7", "8"]
+keys = ["1", "2", "3", "4", "5", "6", "7"]
 dict_val = dict(zip(keys, colors))
 dict_colors = dict(zip(colors, colora))
 dict_keys = dict(zip(colors, keys))
-
 
 def mastermind():
     while (True):
@@ -39,16 +39,20 @@ def mastermind():
         except Exception:
             print("*****Please choose a valid option {}*****".format(art_2))
             continue
-    switcher = {"1": 4, "2": 6, "3": 8}
+    switcher = {"1": 4, "2": 6, "3": 7}
     balls = switcher[str(difficult)]
     secret_list = random.sample(colors, k=balls)
     print(secret_list)
+    color_fak =  ["white" for i in range(len(secret_list))]
+    balls_t =  Balls()
+    balls_t.draw_aptems(color_fak, -400, 340)
     print("*****Please choose {} colors bettwen: *****\n".format(balls))
     art_2 = art("happy")
     print("                        {}\n".format(art_2))
     to_list = list(dict(enumerate(colors)).keys()) 
     to_list = list(map(lambda x: x + 1, to_list))
     print_colors(colors, to_list)
+    coor = -380
     for k in range(0, 8):
         print()
         try:
@@ -62,7 +66,6 @@ def mastermind():
             art_2 = dict_faces["{}".format(k)]
             print("try again ... {}".format(art_2))
             continue
-        print(gamer_list)
         i = 0
         validate = []
         for color in gamer_list:
@@ -90,25 +93,19 @@ def mastermind():
         print("***** You chose this *****")
         validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
         print_colors(validate, validate_keys)
+        balls_t.draw_aptems(validate, -400, coor)
         print("try again ... {}".format(art_2))
+        coor += 90
 
-    try:
-        validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
-        print("***** You chose this *****")
-        print_colors(validate, validate_keys)
-    except Exception:
-        art_2 = art("sad and crying")
-        print("***** you finished all your chances {} *****".format(art_2))
-        ask()
+ 
+    art_2 = art("sad and crying")
+    print("***** you finished all your chances {} *****".format(art_2))
     print("***** The correct answer was *****")
     secret_keys = [dict_keys.get(x) for x in secret_list if dict_keys.get(x)]
     print_colors(secret_list, secret_keys)
-
+    balls_t.draw_aptems(secret_list, -400, 340)
+    coor += 90
     print()
-    art_2=art("sad and crying")
-    print("                        {}".format(art_2))
-    Art = text2art("Game Over")
-    print(Art, end="")
     ask()
 
 
@@ -134,6 +131,10 @@ def ask():
     if answer == "yes":
         mastermind()
     elif answer == "no":
+        art_2=art("sad and crying")
+        print("                        {}".format(art_2))
+        Art = text2art("Game Over")
+        print(Art, end="")
         print("Thanks for play ...! {}".format(art_2))
         exit(0)
     print("           Invalid option          ")
