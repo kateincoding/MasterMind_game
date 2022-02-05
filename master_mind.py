@@ -42,6 +42,7 @@ def mastermind():
     switcher = {"1": 4, "2": 6, "3": 8}
     balls = switcher[str(difficult)]
     secret_list = random.sample(colors, k=balls)
+    print(secret_list)
     print("*****Please choose {} colors bettwen: *****\n".format(balls))
     art_2 = art("happy")
     print("                        {}\n".format(art_2))
@@ -84,23 +85,20 @@ def mastermind():
         if secret_list == validate:
             Art = text2art("Congratulations...!")
             print(Art)
-            art_2 = dict_faces["2"]
-            print("Do you want play again ...? {}".format(art_2))
-            answer = str(input(">>>  "))
-            if answer == "yes":
-                mastermind()
-            else:
-                print("Thanks for play ...! {}".format(art_2))
-                exit(0)
+            ask()
         art_2 = dict_faces["{}".format(k)]
         print("***** You chose this *****")
         validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
         print_colors(validate, validate_keys)
         print("try again ... {}".format(art_2))
 
-    print("***** You chose this *****")
-    validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
-    print_colors(validate, validate_keys)
+    try:
+        validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
+        print("***** You chose this *****")
+        print_colors(validate, validate_keys)
+    except Exception:
+        print("***** you finished all your chances *****")
+        ask()
     print("***** The correct answer was *****")
     secret_keys = [dict_keys.get(x) for x in secret_list if dict_keys.get(x)]
     print_colors(secret_list, secret_keys)
@@ -110,7 +108,7 @@ def mastermind():
     print("                        {}".format(art_2))
     Art = text2art("Game Over")
     print(Art, end="")
-    exit(0)
+    ask()
 
 
 def print_colors(list_color, list_gamer):
@@ -126,5 +124,17 @@ def print_colors(list_color, list_gamer):
         n += 1
         print(Style.RESET_ALL, end="")
     print()
+
+
+def ask():
+    art_2 = dict_faces["2"]
+    print("Do you want play again ...? {}".format(art_2))
+    answer = str(input(">>>  "))
+    if answer == "yes":
+        mastermind()
+    else:
+        print("Thanks for play ...! {}".format(art_2))
+        exit(0)
+
 
 mastermind()
