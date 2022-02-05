@@ -97,7 +97,8 @@ def mastermind():
         print("***** You chose this *****")
         print_colors(validate, validate_keys)
     except Exception:
-        print("***** you finished all your chances *****")
+        art_2 = art("sad and crying")
+        print("***** you finished all your chances {} *****".format(art_2))
         ask()
     print("***** The correct answer was *****")
     secret_keys = [dict_keys.get(x) for x in secret_list if dict_keys.get(x)]
@@ -132,9 +133,11 @@ def ask():
     answer = str(input(">>>  "))
     if answer == "yes":
         mastermind()
-    else:
+    elif answer == "no":
         print("Thanks for play ...! {}".format(art_2))
         exit(0)
+    print("           Invalid option          ")
+    ask()
 
 
 mastermind()
