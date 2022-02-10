@@ -88,8 +88,7 @@ git clone https://github.com/kateincoding/MasterMind_game.git
 
 Install requirements
 ```
-pip3 install art
-pip3 install PythonTurtle
+./packages
 ```
 
 Play the latest version
