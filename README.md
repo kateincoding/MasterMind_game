@@ -30,6 +30,7 @@ load = 1
 The idea of the game is for one player (the code-breaker) to guess the secret code chosen by the other player (the code-maker). The code is a sequence of 4 colored pegs chosen from six colors available. The code-breaker makes a serie of pattern guesses - after each guess the code-maker gives feedback in the form of 2 numbers, the number of pegs that are of the right color and in the correct position, and the number of pegs that are of the correct color but not in the correct position - these numbers are usually represented by small black and white pegs.
 
 ### Piece of code related to the algorithm or flow
+***
 ```sh
 #!/usr/bin/python3
 import random
@@ -93,14 +94,14 @@ coincidences")
 ```
 
 ### Screenshots of the game
-
+***
 The game has 3 lvls :
 1. lvl 1 = 4 balls 
 2. lvl 2 = 5 balls 
 3. lvl 3 = 6 balls
 
 <div align="center">
-  <img src="https://imgur.com/59D84Yx.png" width=500px/>
+  <img src="https://imgur.com/59D84Yx.png" width=100%/>
 </div>
 
 ### And of course a GitHub link to your code
