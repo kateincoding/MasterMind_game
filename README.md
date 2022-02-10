@@ -1,5 +1,6 @@
 # MasterMind_game :brain:
 HackDay: Coding the game MasterMind 
+
 Mastermind is a board game of ingenuity and reflection for two players. It is played on a board with small black and white tiles and other colors, of a somewhat larger size. One of the players chooses a number of colored tiles, 4 in the original game, and puts a secret code hidden from the other player.
 
 ### Campus presentation 🎓
