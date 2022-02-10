@@ -19,23 +19,6 @@ Python is a programming language that lets you work quickly and integrate system
 import random
 
 load = 1
-
-
-    print("[Congratulations] You win in", tryNumber, " tries")
-    load = int(input("Do you want to continue playing? <1=yes, 0=no>: "))
-```
-
-### User(s) flow to play :video_game:
-***
-The idea of the game is for one player (the code-breaker) to guess the secret code chosen by the other player (the code-maker). The code is a sequence of 4 colored pegs chosen from six colors available. The code-breaker makes a serie of pattern guesses - after each guess the code-maker gives feedback in the form of 2 numbers, the number of pegs that are of the right color and in the correct position, and the number of pegs that are of the correct color but not in the correct position - these numbers are usually represented by small black and white pegs.
-
-### Piece of code related to the algorithm or flow
-***
-```sh
-#!/usr/bin/python3
-import random
-
-load = 1
 while load == 1:
     print("Welcome to MAstermind")
     print("Choose the difficulty of the game 1=Easy, 2=Hard, 3=Nightmare")
@@ -91,6 +74,136 @@ coincidences")
 
     print("[Congratulations] You win in", tryNumber, " tries")
     load = int(input("Do you want to continue playing? <1=yes, 0=no>: "))
+```
+
+### User(s) flow to play :video_game:
+***
+The idea of the game is for one player (the code-breaker) to guess the secret code chosen by the other player (the code-maker). The code is a sequence of 4 colored pegs chosen from six colors available. The code-breaker makes a serie of pattern guesses - after each guess the code-maker gives feedback in the form of 2 numbers, the number of pegs that are of the right color and in the correct position, and the number of pegs that are of the correct color but not in the correct position - these numbers are usually represented by small black and white pegs.
+
+### Piece of code related to the algorithm or flow
+***
+```sh
+def mastermind():
+    while (True):
+        art_2 = art("happy")
+        play_music("start.mp3")
+        try:
+            print("\n*****Please choose the level of difficulty: *****")
+            Art = text2art("123", font='block', chr_ignore=True)
+            print(Art)
+            difficult = input(">>> ")
+            if str(difficult) == "exit":
+                play_music("game_over.mp3")
+                sleep(4)
+                exit(0)
+            difficult = int(difficult)
+            if difficult not in [1, 2, 3]:
+                print("*****Please choose a valid option {}*****".format(art_2))
+                continue
+            break
+        except Exception:
+            print("*****Please choose a valid option {}*****".format(art_2))
+            continue
+    switcher = {"1": 4, "2": 5, "3": 6}
+    balls = switcher[str(difficult)]
+    # Creating secret list colours
+    secret_list = random.sample(colors, k=balls)
+    color_fak =  ["white" for i in range(len(secret_list))]
+    balls_t =  Balls(difficult)
+    balls_t.draw_aptems(color_fak, -400, 340)
+    balls_t.draw_separator()
+    coor = -380
+    aptems = 8
+    print("Now you have 8 chances to solve the puzzle {}".format(dict_faces.get("1")))
+    sleep(1)
+    for k in range(0, 8):
+        print("*****Please choose {} colors bettwen: *****\n".format(balls))
+        art_2 = art("happy")
+        print("                        {}\n".format(art_2))
+        to_list = list(dict(enumerate(colors)).keys())
+        to_list = list(map(lambda x: x + 1, to_list))
+        print_colors(colors, to_list)
+
+        print()
+        try:
+            gamer_list = []
+            for i in range(0, balls):
+                a = str(input(">>>  "))
+                if a == "exit":
+                    play_music("game_over.mp3")
+                    sleep(4)
+                    exit(0)
+                if a not in keys:
+                    raise Exception("Try again ...")
+
+                gamer_list.append(a)
+        except Exception:
+            art_2 = dict_faces["{}".format(k)]
+            play_music("game_over.mp3")
+            print("try again ... {}".format(art_2))
+            aptems -= 1
+            count_aptems(aptems)
+            continue
+        i = 0
+        validate = []
+        color_pin = []
+        pin = []
+        for color in gamer_list:
+            if dict_val[color] == secret_list[i]:
+                print(Fore.RED, end="")
+                # Return ASCII text (default font) and
+                # default chr_ignore=True
+                Art = text2art("X")
+                print(Art, end="")
+                color_pin.append("red")
+                pin.append("X")
+                print(Style.RESET_ALL, end="")
+            elif dict_val[color] in secret_list:
+                print(Fore.WHITE, end="")
+                Art = text2art("X")
+                print(Art, end="")
+                pin.append("X")
+                color_pin.append("white")
+                print(Style.RESET_ALL, end="")
+            elif dict_val[color] not in secret_list:
+                print(Fore.BLUE, end="")
+                Art = text2art("0")
+                print(Art, end="")
+                pin.append("0")
+                color_pin.append("blue")
+            validate.append(dict_val[color])
+            i += 1
+        if secret_list == validate:
+            play_music("grats.mp3")
+            Art = text2art("Congratulations...!")
+            balls_t.draw_aptems(secret_list, -400, 340)
+            sleep(4)
+            print(Art)
+            ask()
+        art_2 = dict_faces["{}".format(k)]
+        print("***** You chose this *****")
+        validate_keys = [dict_keys.get(x) for x in validate if dict_keys.get(x)]
+        print_colors(validate, validate_keys)
+        balls_t.draw_aptems(validate, -400, coor)
+        balls_t.draw_pins(color_pin, 50, coor)
+        print("try again ... {}".format(art_2))
+        play_music("game_over.mp3")
+        aptems -= 1
+        count_aptems(aptems)
+        coor += 90
+
+
+ 
+    art_2 = art("sad and crying")
+    print("***** you finished all your chances {} *****".format(art_2))
+    print("***** The correct answer was *****")
+    secret_keys = [dict_keys.get(x) for x in secret_list if dict_keys.get(x)]
+    print_colors(secret_list, secret_keys)
+    balls_t.draw_aptems(secret_list, -400, 340)
+    coor += 90
+    print()
+    ask()
+
 ```
 
 ### Screenshots of the game
