@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo pip install art
+sudo pip install Pythonturtle
+sudo apt-get install python3-tk
+sudo pip install pygame
+sudo pip install colorama
