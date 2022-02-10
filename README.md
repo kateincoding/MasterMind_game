@@ -83,7 +83,7 @@ The idea of the game is for one player (the code-breaker) to guess the secret co
 
 Clone the repository
 ```
-git clone https://github.com/kateincoding/MasterMind_game.git
+git clone https://github.com/kateincoding/MasterMind_game.git && cd MasterMind_game
 ```
 
 Install requirements
