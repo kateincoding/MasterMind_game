@@ -1,2 +1,2 @@
 # MasterMind_game
-HackDay: Coding the game MasterMind 
+## HackDay: Coding the game MasterMind 
