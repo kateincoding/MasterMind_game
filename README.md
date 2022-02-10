@@ -1,6 +1,6 @@
 # MasterMind_game :brain:
 HackDay: Coding the game MasterMind 
-Mastermind is a board game of ingenuity and reflection for two players. It is played on a board with small black and white tiles and other colors, of a somewhat larger size. One of the players chooses a number of colored tiles, 4 in the original game, and puts a secret code hidden from the other player
+Mastermind is a board game of ingenuity and reflection for two players. It is played on a board with small black and white tiles and other colors, of a somewhat larger size. One of the players chooses a number of colored tiles, 4 in the original game, and puts a secret code hidden from the other player.
 
 ### Campus presentation 🎓
 ***
@@ -220,4 +220,5 @@ The game has 3 lvls :
   <img src="https://imgur.com/KsOft8Z.png" width=100%/>
 </div>
 
-### And of course a GitHub link to your code
+### GitHub link to our code
+[GitHub repository](https://github.com/kateincoding/MasterMind_game)
