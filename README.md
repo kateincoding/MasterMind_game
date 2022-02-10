@@ -1,4 +1,4 @@
-# MasterMind_game
+# MasterMind_game :brain:
 HackDay: Coding the game MasterMind 
 
 * Campus presentation
