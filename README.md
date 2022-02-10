@@ -222,3 +222,10 @@ The game has 3 lvls :
 
 ### GitHub link to our code
 [GitHub repository](https://github.com/kateincoding/MasterMind_game)
+
+## Authors :pencil2:
+* **Katherine Soto** - [kateincoding](https://github.com/kateincoding)
+* **Smith Flores** - [luffy981](https://github.com/luffy981)
+* **Estefano Misme** - [estefanomisme](https://github.com/estefanomisme)
+* **Rayd Trujillo** - [rayd1893](https://github.com/rayd1893)
+* **Yuri Quezada** - [yuriquezada](https://github.com/yuriquezada)
