@@ -102,6 +102,9 @@ The game has 3 lvls :
 
 <div align="center">
   <img src="https://imgur.com/59D84Yx.png" width=100%/>
+  <img src="https://imgur.com/Vy2wRKM.png" width=100%/>
+  <img src="https://imgur.com/2IIgVi2.png" width=100%/>
+  <img src="https://imgur.com/KsOft8Z.png" width=100%/>
 </div>
 
 ### And of course a GitHub link to your code
