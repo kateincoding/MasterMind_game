@@ -13,6 +13,22 @@ After Holberton School opened its doors in 2016, the world’s most innovative c
 ####  Python
 Python is a programming language that lets you work quickly and integrate systems more effectively. 
 
+### How to install?
+Clone & enter to the repository
+```
+git clone https://github.com/kateincoding/MasterMind_game.git && cd MasterMind_game
+```
+
+Install requirements
+```
+./packages
+```
+
+Play the latest version
+```
+./mastermind_v3.py
+```
+
 ### Algorithm put in place
 
 ```sh
